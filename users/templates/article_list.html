@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Articles</h2>
+<div class="list-group">
+    {% for article in articles %}
+        <a href="{% url 'article_detail' article.id %}" class="list-group-item list-group-item-action">
+            <h5>{{ article.title }}</h5>
+            {% if article.embargoed %}
+                <span class="badge bg-warning text-dark">Embargoed</span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}
